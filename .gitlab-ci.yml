@@ -1,0 +1,9 @@
+pages :
+  stage : deploy
+  script : #instrucciones
+  - echo "Nothing to do :("
+  artifacts : #cosas para publicar
+    paths: #carpetas 
+    - public
+  only:
+  - master
