@@ -2,6 +2,8 @@
 import Vue from "vue"
 import Vuetify from "vuetify"
 import * as VueGoogleMaps from "vue2-google-maps"
+import VueCarousel from "vue-carousel"
+
 
 /* Components *****************************************************************/
 
@@ -27,6 +29,7 @@ Vue.component("ch-footer", ChFooter)
 /*Vue.component("ch-sample", ChSample)*/
 Vue.component("ch-map", ChMap)
 Vue.use(Vuetify)
+Vue.use(VueCarousel);
 Vue.use(VueGoogleMaps, {
     load: {
       key: "AIzaSyBS4g7qNqSVoVAEAkKiL_eosjSxMeaowBE"

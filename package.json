@@ -20,6 +20,7 @@
     "normalize.css": "^8.0.0",
     "vue": "^2.5.16",
     "vue-awesome": "^2.3.7",
+    "vue-carousel": "^0.10.0",
     "vue-ua": "^1.5.0",
     "vue2-google-maps": "^0.10.0",
     "vuetify": "^1.1.6"
