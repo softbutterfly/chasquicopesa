@@ -4,7 +4,8 @@
             <v-toolbar black id="toolbar" :class="{
                 'v-toolbar--active': isMenuActive,
                 'v-toolbar--solid': isMenuSolid,
-            }">
+            }"> 
+                <img class="logo" :src="assets.ChasquiLogo">
                 <v-spacer></v-spacer>
                 <template v-for="(section, sectionId) in content.sections">
                   <v-toolbar-items class="hidden-sm-and-down" v-if="section.includeInMenu" :key="section.title" @click="scrollTo(sectionId)">
@@ -25,7 +26,7 @@
         </v-card>
 
         <div ref="home" id="home" class="ch-section">
-            <carousel :perPage="1" :autoplay="true" :loop="true">
+            <carousel :perPage="1" :autoplay="false" :loop="true">
                 <slide v-for="(slide, i) in content.home.carousel.items" :key="i">
                     <img :src="slide.src">
                 </slide>
@@ -474,6 +475,15 @@ body.page-wrapper {
             width: 100%;
             transition: all 0.5s ease-in-out;
 
+            img.logo {
+                display: none;
+                max-height: 80px;
+                padding: 0 24px;
+                height: 100%;
+                transition-delay: 1s;
+                transition: all 0.2s ease-in-out;
+            }
+
             .v-btn {
                 min-width: 130px;
                 font-family: Lato;
@@ -483,6 +493,9 @@ body.page-wrapper {
                 padding: 0 24px;
                 &:before {
                     opacity: 0;
+                }
+                .v-btn__content .v-icon {
+                    transition: 0s;
                 }
             }
         }
@@ -506,9 +519,15 @@ body.page-wrapper {
                 0 1px 5px 0 rgba(0, 0, 0, 0.12),
                 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
             transition: all 0.2s ease-in-out;
-            .v-toolbar__content .v-btn {
-                color: black !important;
-                transition: 0s;
+            .v-toolbar__content { 
+                img.logo {
+                    display: block;
+                    transition: all 0.4s ease-in-out;
+                }
+                .v-btn {
+                    color: black !important;
+                    transition: 0s;
+                }
             }
         }
     }
@@ -1010,6 +1029,17 @@ body.page-wrapper {
 }
 
 @media only screen and (max-width: 768px) {
+    
+    .page .v-toolbar .v-toolbar__content {
+        height: 96px !important;
+        img.logo {
+            max-height: 64px;
+        }   
+    }
+    .page .v-menu__content.menuable__content__active {
+        top: 95px !important;
+    }
+
     #home {
         .carousel__content {
             padding: 10% 6% !important;
@@ -1075,8 +1105,9 @@ body.page-wrapper {
                 order: 2;
             }
         }
-        .tile__text {
+        .tile__text { 
             margin: 48px 0;
+            padding: 0 5% !important;
             .simple-title {
                 text-align: center !important;
             }
@@ -1086,12 +1117,18 @@ body.page-wrapper {
         }
     }
     .chasqui-parallax {
-        margin: 0;
+        margin-top: 48px !important;
         .v-parallax {
-            height: 520px !important;
+            height: 400px !important;
+            .v-parallax__image {
+                top: -124px;
+                min-height: auto;
+                bottom: 0;
+            }
         }
     }
     #services {
+        margin-top: 48px;
         padding-top: 32px !important;
         .tile__text {
             text-align: center !important;
@@ -1254,11 +1291,12 @@ body.page-wrapper {
     }
     .chasqui-parallax {
         .v-parallax {
-            height: 350px !important;
+            height: 250px !important;
         }
         .v-parallax__image {
+            min-height: 80% !important;
+            top: -96px;
             bottom: 25px !important;
-            height: 125% !important;
         }
     }
     #services {
@@ -1330,6 +1368,84 @@ body.page-wrapper {
         }
     }
 }
+
+@media only screen and (max-width: 375px) {
+    #about {
+        #about-us {
+            .tile.content-order.vertical-centering {
+                .carousel-number {
+                    padding-left: 8px !important;
+                    font-size: 40px !important;
+                }
+                .tile.tile__text.is-parent.is-vertical {
+                    margin: 16px 0 !important;
+                    padding: 0 !important;
+                    .carousel-title {
+                        line-height: 24px;
+                        max-width: 250px !important;
+                    }
+                    .carousel-description {
+                        max-width: 250px !important;
+                        font-size: 12px !important;
+                        line-height: 16px !important;
+                    }
+                }
+            }
+        }
+    }
+    #services {
+        .VueCarousel.TextCarousel {
+            .VueCarousel-slide {
+                max-width: 375px !important;
+            }
+            .tile.content-order.vertical-centering {
+                .carousel-number {
+                    padding:0 !important;
+                    font-size: 40px !important;
+                }
+                .tile.is-child {
+                    padding: 0 !important;
+                    .carousel-title {
+                        line-height: 24px !important;
+                        padding-left: 16px !important;
+                        max-width: 250px !important;
+                    }
+                    .carousel-description {
+                        max-width: 250px !important;
+                        padding-left: 16px !important;
+                        font-size: 12px !important;
+                        line-height: 16px !important;
+                    }
+                }
+            }
+        }
+    }
+    .chasqui-parallax {
+        height: 200px !important;
+        margin: 24px 0 !important;
+        .v-parallax__image {
+            top: -152px !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #services {
+        .VueCarousel.TextCarousel {
+            .VueCarousel-slide {
+                max-width: 320px !important;
+                .carousel-title {
+                    font-size: 16px !important;
+                    line-height: 20px !important;
+                }
+                .carousel-title, .carousel-description {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+    }
+}
+
 </style>
 
 <script>
@@ -1626,7 +1742,7 @@ export default {
     },
     computed: {
         isMenuSolid() {
-            return this.scrollTop > 200
+            return this.scrollTop > 100
         },
         activeSection() {
             return this.getActiveSection()
