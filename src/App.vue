@@ -4,7 +4,8 @@
             <v-toolbar black id="toolbar" :class="{
                 'v-toolbar--active': isMenuActive,
                 'v-toolbar--solid': isMenuSolid,
-            }">
+            }"> 
+                <img class="logo" :src="assets.ChasquiLogo">
                 <v-spacer></v-spacer>
                 <template v-for="(section, sectionId) in content.sections">
                   <v-toolbar-items class="hidden-sm-and-down" v-if="section.includeInMenu" :key="section.title" @click="scrollTo(sectionId)">
@@ -12,7 +13,7 @@
                   </v-toolbar-items>
                 </template>
                 <v-menu close-on-content-click offset-y transition="slide-y-transition" class="hidden-md-and-up">
-                    <v-toolbar-side-icon :ripple="false" slot="activator" @click="toggleMenu"></v-toolbar-side-icon>                    
+                    <v-toolbar-side-icon :ripple="false" slot="activator" @click="toggleMenu"></v-toolbar-side-icon>
                     <v-list>
                         <template v-for="(section, sectionId) in content.sections">
                           <v-list-tile v-if="section.includeInMenu"  :key="section.title" @click="scrollTo(sectionId)">
@@ -25,7 +26,7 @@
         </v-card>
 
         <div ref="home" id="home" class="ch-section">
-            <carousel :perPage="1" :autoplay="true" :loop="true">
+            <carousel :perPage="1" :autoplay="false" :loop="true">
                 <slide v-for="(slide, i) in content.home.carousel.items" :key="i">
                     <img :src="slide.src">
                 </slide>
@@ -64,8 +65,8 @@
                         <article class="tile is-child">
                             <h3 class="simple-title title is-3">QUIENES SOMOS</h3>
                             <div class="text-content">
-                                Somos una empresa de prestación de servicios de mensajería, 
-                                contamos con una adecuada logística y tecnología, 
+                                Somos una empresa de prestación de servicios de mensajería,
+                                contamos con una adecuada logística y tecnología,
                                 siendo esta la que nos permite realizar las entregas de nuestros clientes en tiempo récord.
                             </div>
                         </article>
@@ -74,7 +75,7 @@
                         <article class="tile is-child">
                             <div class="carousel__container">
                                 <div class="carousel__label">VALORES</div>
-                                <carousel :perPage="1" :autoplay="true" :autoplayTimeout="6000" :loop="true">
+                                <carousel :perPage="1" :autoplay="false" :autoplayTimeout="6000" :loop="true">
                                     <slide v-for="(value, i) in content.about.contents.aboutUs.carousel" :key="i">
                                         <div class="tile is-ancestor" style="max-width:425px;">
                                             <div class="tile is-vertical is-12">
@@ -92,16 +93,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </slide>
                                 </carousel>
-                            </div>                   
-                            <img :src="assets.ChasquiValor"> 
-                        </article> 
+                            </div>
+                            <img :src="assets.ChasquiValor">
+                        </article>
                       </div>
                     </div>
                   </div>
-                </div>   
+                </div>
             </div>
             <div id="mision" class="ch-section">
                 <img :src="assets.GreenFeather" style="
@@ -125,15 +126,15 @@
                         <article class="tile is-child">
                             <h3 class="simple-title title is-3 has-text-right">MISIÓN</h3>
                             <div class="text-content has-text-right">
-                                Somos una empresa Courier que brinda servicios de mensajería a nivel local y nacional, 
-                                garantizando un servicio de calidad y eficiencia en los tiempos establecidos, 
+                                Somos una empresa Courier que brinda servicios de mensajería a nivel local y nacional,
+                                garantizando un servicio de calidad y eficiencia en los tiempos establecidos,
                                 logrando así, superar las expectativas de nuestros clientes.
                             </div>
                         </article>
                       </div>
                     </div>
                   </div>
-                </div>               
+                </div>
             </div>
             <div id="vision" class="ch-section">
                 <img :src="assets.BlueFeather" style="
@@ -165,7 +166,7 @@
                       </div>
                     </div>
                   </div>
-                </div>  
+                </div>
             </div>
         </div>
         <div class="chasqui-parallax">
@@ -193,8 +194,8 @@
                             <article class="tile is-child" style="padding: 0px 18% 0px 9%;">
                                 <h3 class="simple-title title is-3">NUESTROS SERVICIOS</h3>
                                 <div class="text-content">
-                                    Contamos con el personal calificado y una red de representantes a nivel local y nacional 
-                                    logrando realizar las entregas en el momento oportuno con compromiso y ética, 
+                                    Contamos con el personal calificado y una red de representantes a nivel local y nacional
+                                    logrando realizar las entregas en el momento oportuno con compromiso y ética,
                                     cualidades que nos caracterizan.
                                     <ul class="service-terms">
                                         <li v-for="(condition, i) in content.services.contents.terms" :key="i"> <sup>(*)</sup>{{condition}}  </li>
@@ -206,14 +207,14 @@
                             <article class="tile is-child">
                                 <div class="carousel__container">
                                     <div class="carousel__label">SERVICIOS</div>
-                                    <carousel :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
+                                    <carousel :perPage="1" :autoplay="false" :autoplayTimeout="7000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
-                                                <img style="max-height:440px" :src="service.image"> 
-                                            </div> 
+                                                <img style="max-height:440px" :src="service.image">
+                                            </div>
                                         </slide>
                                     </carousel>
-                                    <carousel class="TextCarousel" :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
+                                    <carousel class="TextCarousel" :perPage="1" :autoplay="false" :autoplayTimeout="7000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
                                                 <div class="tile is-vertical is-12">
@@ -231,15 +232,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </slide>
                                     </carousel>
-                                </div>                   
-                            </article> 
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-            </div>   
+            </div>
         </div>
         <div ref="clients" id="clients" class="ch-section">
             <img :src="assets.BlueFeather" style="
@@ -256,8 +257,8 @@
                 left: 3%;
                 top: 82%;
                 transform: rotate(-105deg);">
-            <h3 class="simple-title title">NUESTROS CLIENTES</h3>              
-            <carousel :autoplay="true" :perPageCustom="[[0,2] ,[520, 3]]" :autoplayTimeout="5000" :loop="true">
+            <h3 class="simple-title title">NUESTROS CLIENTES</h3>
+            <carousel :autoplay="false" :perPageCustom="[[0,2] ,[520, 3]]" :autoplayTimeout="5000" :loop="true">
                 <slide v-for="(client, i) in content.clients" :key="i">
                     <img style="" :src="client.src">
                 </slide>
@@ -273,7 +274,7 @@
                 transform: rotate(-188deg);">
             <div class="columns">
                 <div class="column is-half">
-                    <h3 class="simple-title title has-text-centered">CONTÁCTENOS</h3> 
+                    <h3 class="simple-title title has-text-centered">CONTÁCTENOS</h3>
                 </div>
             </div>
             <div class="columns">
@@ -323,7 +324,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                                                                                                                            
+                        </div>
                     </v-form>
                 </div>
                 <div id="location" class="column is-offset-1">
@@ -351,7 +352,7 @@
                             </div>
                             <div class="tile tile__text is-parent is-vertical" >
                                 <article class="tile is-child" >
-                                    <h4 class="title is-4"> {{ info.title }}: </h4> 
+                                    <h4 class="title is-4"> {{ info.title }}: </h4>
                                     <li v-for="(item, i) in info.description" :key="i">{{ item }}</li>
                                 </article>
                             </div>
@@ -361,13 +362,13 @@
             </div>
         </div>
         <footer id="footer" class="grey darken-4 white--text">
-            <v-container> 
+            <v-container>
                 <v-layout fill-height class="gutter" row wrap >
                     <v-flex xs12 md6 text-xs-center text-md-left class="no-margin">
                         © 2018 Chasqui Copesa
                     </v-flex>
                     <v-flex xs12 md6 text-xs-center text-md-right>
-                        Con <v-icon color="red darken-1">fas fa-heart</v-icon> por 
+                        Con <v-icon color="red darken-1">fas fa-heart</v-icon> por
                         <a @click="goToSoftButtterfly" class="softbutterfly">
                             Soft<strong>Butterfly</strong>
                         </a>
@@ -392,52 +393,53 @@ Chasqui-colors
 *:hover,
 *:focus,
 *:active {
-  outline: none;
+    outline: none;
 }
 
 *::-moz-focus-inner {
-  border: 0;
+    border: 0;
 }
 
 html,
 body.page-wrapper {
-  width: 100%;
-  position: relative;
-  overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .page {
-	font-family: PT Sans;
-    background-color: #ffffff!important;
+    font-family: PT Sans;
+    background-color: #ffffff !important;
     font-size: 16px;
-  /*--------- TOOLBAR & MENU ---------*/
+    /*--------- TOOLBAR & MENU ---------*/
     .v-menu__content {
         position: fixed;
-        top: 128px!important;
-        top:128px;
+        top: 128px !important;
+        top: 128px;
         right: 0;
-        width: 100%!important;
-        left: 0!important;
+        width: 100% !important;
+        left: 0 !important;
         max-width: 100%;
         border-radius: 0px;
-        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
         .v-list {
-            padding: 0!important;
+            padding: 0 !important;
             .v-list__tile {
                 height: 56px;
                 padding: 0 32px;
                 font-weight: 600;
             }
         }
-        
+
         &.menuable__content__active {
-            width: 100%!important;
-            min-width: 100%!important;
-            top: 128px!important;
-            transform-origin: none!important;
-            z-index: 99999999999!important;
-            position: fixed!important;
-            box-shadow: 0 3px 2px 0 rgba(0,0,0,0.18)!important;
+            width: 100% !important;
+            min-width: 100% !important;
+            top: 128px !important;
+            transform-origin: none !important;
+            z-index: 99999999999 !important;
+            position: fixed !important;
+            box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.18) !important;
             transition: 0.3s;
             opacity: 1;
             animation-name: fadeInOpacity;
@@ -446,32 +448,43 @@ body.page-wrapper {
             animation-duration: 2s;
 
             .v-toolbar__content {
-            background-color: #fff!important;
+                background-color: #fff !important;
             }
         }
     }
 
     .v-toolbar {
         height: inherit;
-        background-color: transparent!important;;
-        position: fixed!important;
-        z-index: 9999999!important;
-        box-shadow:none;
+        background-color: transparent !important;
+        position: fixed !important;
+        z-index: 9999999 !important;
+        box-shadow: none;
         transition: background-color 0.2s linear;
-        transition-delay: .1s;
-        
-        &.solid-toolbar {
-            background-color: #2E2E2E;
-            transition: background-color 0.2s linear;
-            box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-        }
-    
-        .v-toolbar__content {
-            height: 128px!important;
-            width: 100%;
-            transition: all .5s ease-in-out;
+        transition-delay: 0.1s;
 
-            .v-btn{
+        &.solid-toolbar {
+            background-color: #2e2e2e;
+            transition: background-color 0.2s linear;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+                0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                0 1px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .v-toolbar__content {
+            height: 128px !important;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+
+            img.logo {
+                display: none;
+                max-height: 80px;
+                padding: 0 24px;
+                height: 100%;
+                transition-delay: 1s;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .v-btn {
                 min-width: 130px;
                 font-family: Lato;
                 font-weight: bold;
@@ -481,6 +494,9 @@ body.page-wrapper {
                 &:before {
                     opacity: 0;
                 }
+                .v-btn__content .v-icon {
+                    transition: 0s;
+                }
             }
         }
 
@@ -489,8 +505,8 @@ body.page-wrapper {
             box-shadow: none !important;
             transition: none;
             .v-btn__content {
-                color:#000000;
-                transition: .1s
+                color: #000000;
+                transition: 0.1s;
             }
             .v-toolbar__content {
                 background-color: #ffffff !important;
@@ -499,11 +515,19 @@ body.page-wrapper {
 
         &.v-toolbar--solid {
             background-color: #ffffff !important;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2) !important;
-            transition: all .2s ease-in-out;
-            .v-toolbar__content .v-btn {
-                color:black !important;
-                transition: 0s;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.2s ease-in-out;
+            .v-toolbar__content { 
+                img.logo {
+                    display: block;
+                    transition: all 0.4s ease-in-out;
+                }
+                .v-btn {
+                    color: black !important;
+                    transition: 0s;
+                }
             }
         }
     }
@@ -531,7 +555,6 @@ body.page-wrapper {
         }
     }
 
-
     #home {
         position: relative;
         margin: 0;
@@ -544,8 +567,8 @@ body.page-wrapper {
         }
         .VueCarousel-dot {
             .VueCarousel-dot-button {
-                background-color:transparent !important;
-                border:1px solid #ffffff;
+                background-color: transparent !important;
+                border: 1px solid #ffffff;
             }
             &--active {
                 .VueCarousel-dot-button {
@@ -563,7 +586,7 @@ body.page-wrapper {
             position: absolute;
             display: inline-block;
             text-align: center;
-            top: 0; 
+            top: 0;
             padding: 10%;
             height: 100%;
             width: 100%;
@@ -595,8 +618,8 @@ body.page-wrapper {
                 max-width: 665px;
                 .tile.is-child {
                     position: relative;
-                    .carousel__container{
-                        position:absolute;
+                    .carousel__container {
+                        position: absolute;
                         height: 100%;
                         .carousel__label {
                             position: absolute;
@@ -615,14 +638,14 @@ body.page-wrapper {
                             max-width: 665px;
                             display: flex;
                             align-items: flex-end;
-                            .VueCarousel-slide{
+                            .VueCarousel-slide {
                                 display: flex;
-                                .tile__number{
+                                .tile__number {
                                     .carousel-number {
                                         text-shadow: -1px -1px rgba(0, 0, 0, 0.1);
                                         margin: 0;
                                         cursor: default;
-                                        color: #EFAB1E;
+                                        color: #efab1e;
                                         font-weight: bold;
                                         font-size: 56px;
                                     }
@@ -630,22 +653,22 @@ body.page-wrapper {
                                 .tile__text {
                                     text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
                                     .carousel-title {
-                                        margin-bottom:12px; 
-                                        width:360px;
+                                        margin-bottom: 12px;
+                                        width: 360px;
                                         font-size: 28px;
                                         color: #ffffff;
                                         font-weight: bold;
                                         line-height: 30px;
                                     }
                                     .carousel-description {
-                                        width:360px;
+                                        width: 360px;
                                         font-size: 20px;
                                         color: #ffffff;
                                         line-height: 24px;
                                         margin-bottom: 12px;
                                     }
                                 }
-                            } 
+                            }
                             .VueCarousel-pagination {
                                 display: none;
                                 height: 0;
@@ -683,7 +706,7 @@ body.page-wrapper {
             .tile.is-child {
                 position: relative;
                 height: 100%;
-                .carousel__container{
+                .carousel__container {
                     position: relative;
                     height: 100%;
                     .carousel__label {
@@ -708,19 +731,19 @@ body.page-wrapper {
                             position: absolute;
                             top: 0;
                             left: -43px;
-        
+
                             .tile.is-ancestor {
                                 max-width: 420px;
                             }
                         }
-                        .VueCarousel-slide{
+                        .VueCarousel-slide {
                             display: flex;
-                            .tile__number{
+                            .tile__number {
                                 .carousel-number {
                                     text-shadow: -1px -1px rgba(0, 0, 0, 0.1);
                                     margin: 0;
                                     cursor: default;
-                                    color: #EFAB1E;
+                                    color: #efab1e;
                                     font-weight: bold;
                                     font-size: 56px;
                                 }
@@ -728,22 +751,22 @@ body.page-wrapper {
                             .tile__text {
                                 text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
                                 .carousel-title {
-                                    margin-bottom:12px; 
-                                    width:400px;
+                                    margin-bottom: 12px;
+                                    width: 400px;
                                     font-size: 28px;
                                     color: #ffffff;
                                     font-weight: bold;
                                     line-height: 30px;
                                 }
                                 .carousel-description {
-                                    width:400px;
+                                    width: 400px;
                                     font-size: 20px;
                                     color: #ffffff;
                                     line-height: 24px;
                                     margin-bottom: 12px;
                                 }
                             }
-                        } 
+                        }
                         .VueCarousel-pagination {
                             display: none;
                             height: 0;
@@ -783,7 +806,7 @@ body.page-wrapper {
         &.ch-section {
             margin: 0 5%;
             .simple-title {
-                margin:0;
+                margin: 0;
             }
         }
         #form {
@@ -798,8 +821,9 @@ body.page-wrapper {
                 .columns {
                     margin: 0;
                 }
-                .ch-text-field,.ch-textarea {
-                    display:flex;
+                .ch-text-field,
+                .ch-textarea {
+                    display: flex;
                 }
                 label {
                     text-align: left;
@@ -807,10 +831,12 @@ body.page-wrapper {
                 input.input[type="email"] {
                     height: auto;
                 }
-                input, .textarea {
+                input,
+                .textarea {
                     width: 65%;
-                    &:focus, &:active {
-                        border: 2px solid #EFAB1E;
+                    &:focus,
+                    &:active {
+                        border: 2px solid #efab1e;
                         box-shadow: none;
                     }
                     &.input.vertical-centering {
@@ -833,7 +859,7 @@ body.page-wrapper {
                         padding: 0;
                         max-width: 150px;
                         font-weight: bold;
-                        background-color: #E8664A;
+                        background-color: #e8664a;
                     }
                 }
             }
@@ -887,7 +913,7 @@ body.page-wrapper {
 @media screen and (max-width: 1225px) {
     #home {
         .carousel__content {
-            padding: 11% 8%!important;
+            padding: 11% 8% !important;
             img {
                 width: 300px;
             }
@@ -954,7 +980,7 @@ body.page-wrapper {
         .tile.tile__text.is-parent.is-vertical {
             min-width: 320px;
         }
-        .VueCarousel{
+        .VueCarousel {
             .VueCarousel-wrapper {
                 height: inherit;
             }
@@ -1003,9 +1029,20 @@ body.page-wrapper {
 }
 
 @media only screen and (max-width: 768px) {
+    
+    .page .v-toolbar .v-toolbar__content {
+        height: 96px !important;
+        img.logo {
+            max-height: 64px;
+        }   
+    }
+    .page .v-menu__content.menuable__content__active {
+        top: 95px !important;
+    }
+
     #home {
         .carousel__content {
-            padding: 10% 6%!important;
+            padding: 10% 6% !important;
             img {
                 width: 180px;
             }
@@ -1045,28 +1082,34 @@ body.page-wrapper {
                         }
                     }
                     img {
-                    display: flex;
-                    width: 100%;
+                        display: flex;
+                        width: 100%;
                     }
                 }
             }
             .carousel-number {
                 text-align: center;
             }
-            .carousel-title,.carousel-description {
+            .carousel-title,
+            .carousel-description {
                 text-align: center;
             }
         }
         .content-order {
             display: flex;
             flex-flow: column;
-            div#first-order {order: 1;}
-            div#second-order {order: 2;}
+            div#first-order {
+                order: 1;
+            }
+            div#second-order {
+                order: 2;
+            }
         }
-        .tile__text {
+        .tile__text { 
             margin: 48px 0;
+            padding: 0 5% !important;
             .simple-title {
-                text-align: center!important;
+                text-align: center !important;
             }
         }
         #vision {
@@ -1074,12 +1117,18 @@ body.page-wrapper {
         }
     }
     .chasqui-parallax {
-        margin: 0;
+        margin-top: 48px !important;
         .v-parallax {
-            height: 520px !important;
+            height: 400px !important;
+            .v-parallax__image {
+                top: -124px;
+                min-height: auto;
+                bottom: 0;
+            }
         }
     }
     #services {
+        margin-top: 48px;
         padding-top: 32px !important;
         .tile__text {
             text-align: center !important;
@@ -1096,15 +1145,15 @@ body.page-wrapper {
             .VueCarousel {
                 max-width: none !important;
                 img {
-                max-height: none;
-                width: 100%;
+                    max-height: none;
+                    width: 100%;
                 }
             }
             .VueCarousel.TextCarousel {
                 left: 0 !important;
                 right: 0;
                 .tile.is-ancestor {
-                    max-width: none!important;
+                    max-width: none !important;
                     display: flex;
                     align-self: flex-end;
                     .tile.content-order.vertical-centering {
@@ -1115,7 +1164,8 @@ body.page-wrapper {
                         .tile.is-child {
                             margin: 24px 0 !important;
                         }
-                        .carousel-title,.carousel-description {
+                        .carousel-title,
+                        .carousel-description {
                             width: 100%;
                         }
                     }
@@ -1127,7 +1177,7 @@ body.page-wrapper {
         }
     }
     #clients {
-        .simple-title { 
+        .simple-title {
             margin-bottom: 96px !important;
             text-align: center;
         }
@@ -1144,7 +1194,7 @@ body.page-wrapper {
         #location {
             margin: 0;
             .vue-map-container.map {
-            margin: 24px 0;
+                margin: 24px 0;
             }
             .map {
                 height: 300px !important;
@@ -1174,7 +1224,7 @@ body.page-wrapper {
 @media only screen and (max-width: 645px) {
     #home {
         .carousel__content {
-            padding: 8% 6%!important;
+            padding: 8% 6% !important;
             img {
                 width: 140px;
             }
@@ -1191,7 +1241,7 @@ body.page-wrapper {
             .title.is-4 {
                 font-size: 18px !important;
             }
-            .tile.tile__text.is-parent{
+            .tile.tile__text.is-parent {
                 padding: 12px 0 12px 4px !important;
                 &.is-vertical {
                     font-size: 14px;
@@ -1204,7 +1254,7 @@ body.page-wrapper {
 @media only screen and (max-width: 520px) {
     #home {
         .carousel__content {
-            padding: 7% 2% 7% 6%!important;
+            padding: 7% 2% 7% 6% !important;
             img {
                 width: 100px;
             }
@@ -1241,11 +1291,12 @@ body.page-wrapper {
     }
     .chasqui-parallax {
         .v-parallax {
-            height: 350px !important;
+            height: 250px !important;
         }
         .v-parallax__image {
+            min-height: 80% !important;
+            top: -96px;
             bottom: 25px !important;
-            height: 125% !important;
         }
     }
     #services {
@@ -1307,12 +1358,89 @@ body.page-wrapper {
 @media only screen and (max-width: 420px) {
     #home {
         .carousel__content {
-            padding: 7% 2% 7% 6%!important;
+            padding: 7% 2% 7% 6% !important;
             img {
                 width: 80px;
             }
             .carousel__text {
                 font-size: 12px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #about {
+        #about-us {
+            .tile.content-order.vertical-centering {
+                .carousel-number {
+                    padding-left: 8px !important;
+                    font-size: 40px !important;
+                }
+                .tile.tile__text.is-parent.is-vertical {
+                    margin: 16px 0 !important;
+                    padding: 0 !important;
+                    .carousel-title {
+                        line-height: 24px;
+                        max-width: 250px !important;
+                    }
+                    .carousel-description {
+                        max-width: 250px !important;
+                        font-size: 12px !important;
+                        line-height: 16px !important;
+                    }
+                }
+            }
+        }
+    }
+    #services {
+        .VueCarousel.TextCarousel {
+            .VueCarousel-slide {
+                max-width: 375px !important;
+            }
+            .tile.content-order.vertical-centering {
+                .carousel-number {
+                    padding:0 !important;
+                    font-size: 40px !important;
+                }
+                .tile.is-child {
+                    padding: 0 !important;
+                    .carousel-title {
+                        line-height: 24px !important;
+                        padding-left: 16px !important;
+                        max-width: 250px !important;
+                    }
+                    .carousel-description {
+                        max-width: 250px !important;
+                        padding-left: 16px !important;
+                        font-size: 12px !important;
+                        line-height: 16px !important;
+                    }
+                }
+            }
+        }
+    }
+    .chasqui-parallax {
+        height: 200px !important;
+        margin: 24px 0 !important;
+        .v-parallax__image {
+            top: -152px !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #services {
+        .VueCarousel.TextCarousel {
+            .VueCarousel-slide {
+                max-width: 320px !important;
+                .carousel-title {
+                    font-size: 16px !important;
+                    line-height: 20px !important;
+                }
+                .carousel-title, .carousel-description {
+                    padding-left: 0 !important;
+                }
             }
         }
     }
@@ -1330,7 +1458,7 @@ import ChasquiArequipa from "./assets/images/chasqui-arequipa.jpg"
 import ChasquiLimaCentro from "./assets/images/chasqui-limacentro.jpg"
 import ChasquiRural from "./assets/images/chasqui-rural.jpg"
 
-import ChasquiParallax from "./assets/images/chasqui-parallax.svg"
+import ChasquiParallax from "./assets/images/chasqui-parallax.jpg"
 
 import ChasquiValor from "./assets/images/chasqui-valor.jpg"
 import ChasquiVision from "./assets/images/chasqui-vision.jpg"
@@ -1355,11 +1483,9 @@ import mail from "./assets/images/mail.svg"
 import phone from "./assets/images/phone.svg"
 import facebook from "./assets/images/facebook.svg"
 
-
-
 export default {
     name: "App",
-    data () {
+    data() {
         return {
             assets: {
                 ChasquiLimaCentro: ChasquiLimaCentro,
@@ -1375,7 +1501,7 @@ export default {
                 GreenFeather: GreenFeather
             },
             isToolbarFixed: true,
-            content : {
+            content: {
                 sections: {
                     home: {
                         includeInMenu: true,
@@ -1387,12 +1513,12 @@ export default {
                         title: "Nosotros",
                         isActive: false
                     },
-                    services : {
+                    services: {
                         includeInMenu: true,
                         title: "Servicios",
-                        isActive: false                        
+                        isActive: false
                     },
-                    clients : {
+                    clients: {
                         includeInMenu: true,
                         title: "Clientes",
                         isActive: false
@@ -1404,7 +1530,7 @@ export default {
                     }
                 },
                 home: {
-                    contents : {
+                    contents: {
                         title: "El title",
                         text: "El lorem ipsum va aqui",
                         image: "imagen"
@@ -1412,57 +1538,64 @@ export default {
                     carousel: {
                         items: [
                             {
-                              src: ChasquiRural
+                                src: ChasquiRural
                             },
                             {
-                              src: ChasquiLimaCentro
+                                src: ChasquiLimaCentro
                             },
                             {
-                              src: ChasquiArequipa
+                                src: ChasquiArequipa
                             }
-                        ],
-                    },
+                        ]
+                    }
                 },
                 about: {
-                    contents : {
+                    contents: {
                         aboutUs: {
                             carousel: {
                                 1: {
                                     number: "01",
                                     title: "Trabajo en Equipo",
-                                    text: "Somos activos, apasionados, compartimos nuestro conocimiento y aprendemos de todos."
+                                    text:
+                                        "Somos activos, apasionados, compartimos nuestro conocimiento y aprendemos de todos."
                                 },
                                 2: {
                                     number: "02",
                                     title: "Responsabilidad",
-                                    text: "Nuestros colaboradores son responsables de las acciones que ejecutan al realizar sus funciones con dedicación y eficiencia."
+                                    text:
+                                        "Nuestros colaboradores son responsables de las acciones que ejecutan al realizar sus funciones con dedicación y eficiencia."
                                 },
                                 3: {
                                     number: "03",
                                     title: "Cautela",
-                                    text: "Nuestros colaboradores mantienen en total discreción la información referencial al ejercicio de sus funciones."
+                                    text:
+                                        "Nuestros colaboradores mantienen en total discreción la información referencial al ejercicio de sus funciones."
                                 },
                                 4: {
                                     number: "04",
                                     title: "Emocionalidad",
-                                    text: "Brindamos un trato cálido y humano a nuestros clientes y colaboradores."
+                                    text:
+                                        "Brindamos un trato cálido y humano a nuestros clientes y colaboradores."
                                 },
                                 5: {
                                     number: "05",
                                     title: "Puntualidad",
-                                    text: "Cumplimos nuestros compromisos y obligaciones en los plazos establecidos."
+                                    text:
+                                        "Cumplimos nuestros compromisos y obligaciones en los plazos establecidos."
                                 },
                                 6: {
                                     number: "06",
                                     title: "Calidad de servicio",
-                                    text: "Estamos comprometidos en brindar un servicio que cumpla con los mejores estándares, por ello, nuestro servicio se caracteriza por ser comprometido, eficaz y eficiente."
+                                    text:
+                                        "Estamos comprometidos en brindar un servicio que cumpla con los mejores estándares, por ello, nuestro servicio se caracteriza por ser comprometido, eficaz y eficiente."
                                 },
                                 7: {
                                     number: "07",
                                     title: "Preservación del medio ambiente",
-                                    text: "Estamos comprometidos con el cuidado del medio ambiente, creando más áreas verdes, y otorgando un adecuado tratamiento a los desechos."
-                                },
-                            },
+                                    text:
+                                        "Estamos comprometidos con el cuidado del medio ambiente, creando más áreas verdes, y otorgando un adecuado tratamiento a los desechos."
+                                }
+                            }
                         },
                         mision: {
                             title: "El title",
@@ -1472,9 +1605,9 @@ export default {
                         vision: {
                             title: "El title",
                             text: "El lorem ipsum va aqui",
-                            image: "imagen"                            
-                        },
-                    },
+                            image: "imagen"
+                        }
+                    }
                 },
                 services: {
                     contents: {
@@ -1488,46 +1621,54 @@ export default {
                                 image: servicio1,
                                 number: "01",
                                 title: "Servicios In House",
-                                text: "Servicio que se realiza dentro de la entidad pública o privada."
+                                text:
+                                    "Servicio que se realiza dentro de la entidad pública o privada."
                             },
                             2: {
                                 image: servicio2,
                                 number: "02",
                                 title: "Servicios de motorizados",
-                                text: "Servicio de reparto de documentos expreso."
-                            }, 
+                                text:
+                                    "Servicio de reparto de documentos expreso."
+                            },
                             3: {
                                 image: servicio3,
                                 number: "03",
-                                title: "Servicio de recojo y reparto de valijas entre entidades",
-                                text: "Brindamos el servicio de recojo, reparto de valijas, con la seguridad requerida por nuestros clientes."
-                            }, 
+                                title:
+                                    "Servicio de recojo y reparto de valijas entre entidades",
+                                text:
+                                    "Brindamos el servicio de recojo, reparto de valijas, con la seguridad requerida por nuestros clientes."
+                            },
                             4: {
                                 image: servicio4,
                                 number: "04",
                                 title: "Servicio de Courier (inmediato)",
-                                text: "Brindamos servicio de recojo, entrega, devolución de cargos de documentos como y de paquetería."
-                            }, 
+                                text:
+                                    "Brindamos servicio de recojo, entrega, devolución de cargos de documentos como y de paquetería."
+                            },
                             5: {
                                 image: servicio5,
                                 number: "05",
                                 title: "Servicio masivo",
-                                text: "Brindamos el reparto masivo de documentos (revistas, estados de cuentas, y otros)"
-                            }, 
+                                text:
+                                    "Brindamos el reparto masivo de documentos (revistas, estados de cuentas, y otros)"
+                            },
                             6: {
                                 image: servicio6,
                                 number: "06",
                                 title: "Servicio de digitación",
-                                text: "Ofrecemos precisión y rapidez en el digitado de toda la información requerida por nuestros clientes para su base de datos."
-                            }, 
+                                text:
+                                    "Ofrecemos precisión y rapidez en el digitado de toda la información requerida por nuestros clientes para su base de datos."
+                            },
                             7: {
                                 image: servicio7,
                                 number: "07",
                                 title: "Servicio de digitalizado",
-                                text: "Servicio que mediante técnicas fotoeléctricas o de escáner convierte imágenes análogas en imágenes digitales para facilitar su búsqueda."
-                            },                                                                                                                                                                    
-                        },
-                    },
+                                text:
+                                    "Servicio que mediante técnicas fotoeléctricas o de escáner convierte imágenes análogas en imágenes digitales para facilitar su búsqueda."
+                            }
+                        }
+                    }
                 },
                 clients: [
                     {
@@ -1547,59 +1688,61 @@ export default {
                     },
                     {
                         src: cliente6
-                    },
+                    }
                 ],
                 contact: {
-                    contents : {
+                    contents: {
                         info: {
                             1: {
                                 icon: mail,
                                 title: "CORREO",
                                 description: [
-							'contacto@chasquicopesa.com.pe',
-                            'chasquicopesa@outlook.com',
-                            'chasquicopesa@yahoo.com'
-                                ],
+                                    "contacto@chasquicopesa.com.pe",
+                                    "chasquicopesa@outlook.com",
+                                    "chasquicopesa@yahoo.com"
+                                ]
                             },
                             2: {
                                 icon: phone,
                                 title: "TELÉFONO",
-                                description: ["988890407"],
+                                description: ["988890407"]
                             },
                             3: {
                                 icon: facebook,
                                 title: "FACEBOOK",
-                                description: ["https://www.facebook.com/chasqui.copesa"],
-                            },
-                        },
-                    },
-                },
+                                description: [
+                                    "https://www.facebook.com/chasqui.copesa"
+                                ]
+                            }
+                        }
+                    }
+                }
             },
             maps: {
                 center: {
-                    lat:-12.1450982,
-                    lng:-76.9876482
+                    lat: -12.1450982,
+                    lng: -76.9876482
                 },
                 options: {
                     draggable: true,
-                    disableDefaultUI: true,
+                    disableDefaultUI: true
                 }
             },
             props: {
-		        menuTab: {
+                menuTab: {
                     type: Array,
-		        	default () {
-		        		return []
-		        	}
-		        },
+                    default() {
+                        return []
+                    }
+                }
             },
             isMenuActive: false,
-            scrollTop: 0,
+            scrollTop: 0
         }
     },
     computed: {
         isMenuSolid() {
-            return this.scrollTop > 200
+            return this.scrollTop > 100
         },
         activeSection() {
             return this.getActiveSection()
@@ -1612,7 +1755,7 @@ export default {
     },
     methods: {
         goToSoftButtterfly() {
-            window.open("https://softbutterfly.io", '_blank');
+            window.open("https://softbutterfly.io", "_blank")
         },
         toggleMenu() {
             this.isMenuActive = !this.isMenuActive
@@ -1632,13 +1775,14 @@ export default {
                 })
         },
         onScroll() {
-            this.scrollTop = window.pageYOffset || document.documentElement.scrollTop
+            this.scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop
         },
         onResize() {
             /*$(document).ready(function() {
-            
+
                 $(window).scroll(function() {
-                
+
                     var height = $('.toolbar').height();
                     var scrollTop = $(window).scrollTop();
 
@@ -1660,7 +1804,7 @@ export default {
         },
         beforeDestroy() {
             if (typeof window !== "undefined") {
-              window.removeEventListener("resize", this.onResize)
+                window.removeEventListener("resize", this.onResize)
             }
         }
     }
