@@ -74,7 +74,7 @@
                         <article class="tile is-child">
                             <div class="carousel__container">
                                 <div class="carousel__label">VALORES</div>
-                                <carousel :perPage="1" :autoplay="false" :autoplayTimeout="6000" :loop="true">
+                                <carousel :perPage="1" :autoplay="true" :autoplayTimeout="6000" :loop="true">
                                     <slide v-for="(value, i) in content.about.contents.aboutUs.carousel" :key="i">
                                         <div class="tile is-ancestor" style="max-width:425px;">
                                             <div class="tile is-vertical is-12">
@@ -206,14 +206,14 @@
                             <article class="tile is-child">
                                 <div class="carousel__container">
                                     <div class="carousel__label">SERVICIOS</div>
-                                    <carousel :perPage="1" :autoplay="false" :autoplayTimeout="7000" :loop="true">
+                                    <carousel :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
                                                 <img style="max-height:440px" :src="service.image">
                                             </div>
                                         </slide>
                                     </carousel>
-                                    <carousel class="TextCarousel" :perPage="1" :autoplay="false" :autoplayTimeout="7000" :loop="true">
+                                    <carousel class="TextCarousel" :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
                                                 <div class="tile is-vertical is-12">
@@ -257,7 +257,7 @@
                 top: 82%;
                 transform: rotate(-105deg);">
             <h3 class="simple-title title">NUESTROS CLIENTES</h3>
-            <carousel :autoplay="false" :perPageCustom="[[0,2] ,[520, 3]]" :autoplayTimeout="5000" :loop="true">
+            <carousel :autoplay="true" :perPageCustom="[[0,2] ,[520, 3]]" :autoplayTimeout="5000" :loop="true">
                 <slide v-for="(client, i) in content.clients" :key="i">
                     <img style="" :src="client.src">
                 </slide>
