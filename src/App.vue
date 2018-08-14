@@ -4,7 +4,7 @@
             <v-toolbar black id="toolbar" :class="{
                 'v-toolbar--active': isMenuActive,
                 'v-toolbar--solid': isMenuSolid,
-            }"> 
+            }">
                 <img class="logo" :src="assets.ChasquiLogo">
                 <v-spacer></v-spacer>
                 <template v-for="(section, sectionId) in content.sections">
@@ -26,7 +26,7 @@
         </v-card>
 
         <div ref="home" id="home" class="ch-section">
-            <carousel :perPage="1" :autoplay="false" :loop="true">
+            <carousel :perPage="1" :autoplay="true" :loop="true">
                 <slide v-for="(slide, i) in content.home.carousel.items" :key="i">
                     <img :src="slide.src">
                 </slide>
@@ -504,12 +504,18 @@ body.page-wrapper {
             background-color: #ffffff !important;
             box-shadow: none !important;
             transition: none;
+
             .v-btn__content {
                 color: #000000;
                 transition: 0.1s;
             }
             .v-toolbar__content {
                 background-color: #ffffff !important;
+
+                img.logo {
+                    display: block;
+                    transition: all 0.4s ease-in-out;
+                }
             }
         }
 
@@ -519,11 +525,12 @@ body.page-wrapper {
                 0 1px 5px 0 rgba(0, 0, 0, 0.12),
                 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
             transition: all 0.2s ease-in-out;
-            .v-toolbar__content { 
+            .v-toolbar__content {
                 img.logo {
                     display: block;
                     transition: all 0.4s ease-in-out;
                 }
+
                 .v-btn {
                     color: black !important;
                     transition: 0s;
@@ -1029,12 +1036,11 @@ body.page-wrapper {
 }
 
 @media only screen and (max-width: 768px) {
-    
     .page .v-toolbar .v-toolbar__content {
         height: 96px !important;
         img.logo {
             max-height: 64px;
-        }   
+        }
     }
     .page .v-menu__content.menuable__content__active {
         top: 95px !important;
@@ -1105,7 +1111,7 @@ body.page-wrapper {
                 order: 2;
             }
         }
-        .tile__text { 
+        .tile__text {
             margin: 48px 0;
             padding: 0 5% !important;
             .simple-title {
@@ -1400,7 +1406,7 @@ body.page-wrapper {
             }
             .tile.content-order.vertical-centering {
                 .carousel-number {
-                    padding:0 !important;
+                    padding: 0 !important;
                     font-size: 40px !important;
                 }
                 .tile.is-child {
@@ -1438,14 +1444,14 @@ body.page-wrapper {
                     font-size: 16px !important;
                     line-height: 20px !important;
                 }
-                .carousel-title, .carousel-description {
+                .carousel-title,
+                .carousel-description {
                     padding-left: 0 !important;
                 }
             }
         }
     }
 }
-
 </style>
 
 <script>

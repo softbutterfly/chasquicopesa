@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "chasqui": "parcel index.html --public-url /",
+    "chasqui:pro": "parcel index.html --public-url / --no-source-maps",
     "start:dev": "parcel index.html --public-url /",
     "start:pro": "parcel build index.html --public-url / --out-dir public --no-source-maps"
   },
