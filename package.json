@@ -1,44 +1,43 @@
 {
-    "name": "chasqui-copesa",
-    "version": "0.0.1",
-    "description": "Frontend for Chasqui-Copesa",
-    "main": "main.js",
-    "repository": "git@gitlab.com:softbutterfly/chasqui-copesa/landing.git",
-    "author": "Wrycat <jhann.rlml@gmail.com>",
-    "license": "MIT",
-    "scripts": {
-        "chasqui": "parcel index.html --public-url /static/",
-        "start:dev": "parcel index.html --public-url /static/",
-        "start:pro": "parcel build index.html --public-url 'https://www.chasquicopesa.com.pe/' --out-dir public --no-source-maps"
-    },
-    "dependencies": {
-        "animate.css": "^3.6.1",
-        "autoprefixer": "^8.6.5",
-        "bulma": "^0.7.1",
-        "bulma-carousel": "^3.0.0",
-        "bulma-extensions": "^2.2.1",
-        "normalize.css": "^8.0.0",
-        "vue": "^2.5.16",
-        "vue-awesome": "^2.3.7",
-        "vue-carousel": "^0.10.0",
-        "vue-ua": "^1.5.0",
-        "vue2-google-maps": "^0.10.0",
-        "vuetify": "^1.1.6"
-    },
-    "devDependencies": {
-        "@vue/component-compiler-utils": "^2.0.0",
-        "babel-eslint": "^8.2.3",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
-        "css-loader": "^0.28.11",
-        "eslint": "^4.19.1",
-        "eslint-plugin-vue": "^4.5.0",
-        "less": "^3.0.4",
-        "node-sass": "^4.9.0",
-        "parcel-bundler": "^1.9.1",
-        "parcel-plugin-eslint": "^1.0.4",
-        "postcss-modules": "^1.1.0",
-        "vue-hot-reload-api": "^2.3.0",
-        "vue-template-compiler": "^2.5.16"
-    }
+  "name": "chasqui-copesa",
+  "version": "0.0.1",
+  "description": "Frontend for Chasqui-Copesa",
+  "main": "main.js",
+  "repository": "git@gitlab.com:softbutterfly/chasqui-copesa/landing.git",
+  "author": "Wrycat <jhann.rlml@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "chasqui": "parcel index.html --public-url /",
+    "chasqui:pro": "parcel index.html --public-url / --no-source-maps",
+    "start:dev": "parcel index.html --public-url /",
+    "start:pro": "parcel build index.html --public-url / --out-dir public --no-source-maps"
+  },
+  "dependencies": {
+    "animate.css": "^3.6.1",
+    "autoprefixer": "^8.6.5",
+    "bulma": "^0.7.1",
+    "normalize.css": "^8.0.0",
+    "vue": "^2.5.16",
+    "vue-awesome": "^2.3.7",
+    "vue-carousel": "^0.10.0",
+    "vue-ua": "^1.5.0",
+    "vue2-google-maps": "^0.10.0",
+    "vuetify": "^1.1.6"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.0.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-plugin-vue": "^4.5.0",
+    "less": "^3.0.4",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.9.1",
+    "parcel-plugin-eslint": "^1.0.4",
+    "postcss-modules": "^1.1.0",
+    "vue-hot-reload-api": "^2.3.0",
+    "vue-template-compiler": "^2.5.16"
+  }
 }
