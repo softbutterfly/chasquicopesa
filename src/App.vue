@@ -701,7 +701,7 @@ body.page-wrapper {
         .tile__image {
             padding: 0;
             height: 100%;
-            pointer-events: none;
+            /*pointer-events: none;*/
             cursor: default;
             .tile.is-child {
                 position: relative;
@@ -1034,7 +1034,7 @@ body.page-wrapper {
         height: 96px !important;
         img.logo {
             max-height: 64px;
-        }   
+        }
     }
     .page .v-menu__content.menuable__content__active {
         top: 95px !important;
@@ -1152,6 +1152,9 @@ body.page-wrapper {
             .VueCarousel.TextCarousel {
                 left: 0 !important;
                 right: 0;
+                .VueCarousel-slide {
+                    width: 100%;
+                }
                 .tile.is-ancestor {
                     max-width: none !important;
                     display: flex;
