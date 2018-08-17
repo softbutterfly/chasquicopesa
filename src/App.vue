@@ -25,7 +25,7 @@
             </v-toolbar>
         </v-card>
 
-        <div ref="home" id="home" class="ch-section">
+        <div ref="home" id="home" class="ch-section" style="z-index:2;">
             <carousel :perPage="1" :autoplay="true" :loop="true">
                 <slide v-for="(slide, i) in content.home.carousel.items" :key="i">
                     <img :src="slide.src">
@@ -44,14 +44,14 @@
         </div>
         <div ref="about" id="about">
             <div id="about-us" class="ch-section">
-                <img :src="assets.RedFeather" class="chasqui-" style="
+                <img :src="assets.RedFeather" class="feather" style="
                     position: absolute;
                     opacity: 0.4;
                     transform: rotate(25deg);
                     width: 15%;
                     left: 15%;
                     top: 16%;">
-                <img :src="assets.RedFeather" style="
+                <img :src="assets.RedFeather" class="feather" style="
                     position: absolute;
                     opacity: 0.4;
                     transform: rotate(-100deg);
@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div id="mision" class="ch-section">
-                <img :src="assets.GreenFeather" style="
+                <img :src="assets.GreenFeather" class="feather" style="
                     position: absolute;
                     opacity: 0.6;
                     transform: rotate(-45deg);
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div id="vision" class="ch-section">
-                <img :src="assets.BlueFeather" style="
+                <img :src="assets.BlueFeather" class="feather" style="
                     position: absolute;
                     opacity: 0.6;
                     transform: rotate(10deg);
@@ -173,14 +173,14 @@
             <v-parallax height="400" :src="assets.ChasquiParallax"></v-parallax>
         </div>
         <div  ref="services" id="services" class="ch-section">
-            <img :src="assets.GreenFeather" style="
+            <img :src="assets.GreenFeather" class="feather" style="
                 position: absolute;
                 opacity: 0.7;
                 width: 18%;
                 right: 0%;
                 top: 71.5%;
                 transform: rotate(-60deg) scaleX(-1);">
-            <img :src="assets.RedFeather" style="
+            <img :src="assets.RedFeather" class="feather" style="
                 position: absolute;
                 opacity: 0.6;
                 transform: rotate(0deg);
@@ -196,9 +196,9 @@
                                 <div class="text-content">
                                     Contamos con el personal calificado y una red de representantes a nivel local y nacional
                                     logrando realizar las entregas en el momento oportuno con compromiso y ética,
-                                    cualidades que nos caracterizan.
+                                    cualidades que nos caracterizan:
                                     <ul class="service-terms">
-                                        <li v-for="(condition, i) in content.services.contents.terms" :key="i"> <sup>(*)</sup>{{condition}}  </li>
+                                        <li v-for="(condition, i) in content.services.contents.terms" :key="i"> - {{condition}}  </li>
                                     </ul>
                                 </div>
                             </article>
@@ -207,14 +207,14 @@
                             <article class="tile is-child">
                                 <div class="carousel__container">
                                     <div class="carousel__label">SERVICIOS</div>
-                                    <carousel :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
+                                    <carousel :perPage="1" :autoplay="true" :autoplayTimeout="11000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
                                                 <img style="max-height:440px" :src="service.image">
                                             </div>
                                         </slide>
                                     </carousel>
-                                    <carousel class="TextCarousel" :perPage="1" :autoplay="true" :autoplayTimeout="7000" :loop="true">
+                                    <carousel class="TextCarousel" :perPage="1" :autoplay="true"  :autoplayTimeout="11000" :loop="true">
                                         <slide v-for="(service, i) in content.services.contents.carousel" :key="i">
                                             <div class="tile is-ancestor">
                                                 <div class="tile is-vertical is-12">
@@ -243,14 +243,14 @@
             </div>
         </div>
         <div ref="clients" id="clients" class="ch-section">
-            <img :src="assets.BlueFeather" style="
+            <img :src="assets.BlueFeather" class="feather" style="
                 position: absolute;
                 opacity: 0.6;
                 transform: rotate(10deg);
                 width: 18%;
                 left: 15%;
                 top: 73%;">
-            <img :src="assets.RedFeather" style="
+            <img :src="assets.RedFeather" class="feather" style="
                 position: absolute;
                 opacity: 0.7;
                 width: 14%;
@@ -265,7 +265,7 @@
             </carousel>
         </div>
         <div ref="contact" id="contact" class="ch-section">
-            <img :src="assets.GreenFeather" style="
+            <img :src="assets.GreenFeather" class="feather" style="
                 position: absolute;
                 opacity: 0.7;
                 width: 17%;
@@ -441,8 +441,7 @@ body.page-wrapper {
             position: fixed !important;
             box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.18) !important;
             transition: 0.3s;
-            opacity: 1;
-            animation-name: fadeInOpacity;
+            opacity: acity;
             animation-iteration-count: 1;
             animation-timing-function: ease-in;
             animation-duration: 2s;
@@ -658,7 +657,7 @@ body.page-wrapper {
                                     }
                                 }
                                 .tile__text {
-                                    text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+                                    text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
                                     .carousel-title {
                                         margin-bottom: 12px;
                                         width: 360px;
@@ -756,7 +755,7 @@ body.page-wrapper {
                                 }
                             }
                             .tile__text {
-                                text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+                                text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
                                 .carousel-title {
                                     margin-bottom: 12px;
                                     width: 400px;
@@ -915,7 +914,24 @@ body.page-wrapper {
             }
         }
     }
+
+    .feather {
+        animation: rotating 5s;
+        animation-iteration-count: infinite;
+    }
 }
+
+
+
+@keyframes rotating {
+    0%   {transform: rotate(50deg) translateY(0px)}
+    25%  {transform: rotate(-50deg) translateY(100px);}
+    50%  {transform: rotate(50deg) translateY(200px);}
+    75%  {transform: rotate(-50deg) translateY(300px);}
+    100%  {transform: rotate(50deg) translateY(400px);}
+}
+
+
 
 @media screen and (max-width: 1225px) {
     #home {
@@ -1621,9 +1637,9 @@ export default {
                 services: {
                     contents: {
                         terms: {
-                            1: "Las entregas promedio en Lima Metropolitana se realizan en 24 horas.",
-                            2: "Nivel nacional en la capital de departamento es de 24 – 48 horas.",
-                            3: "Para ciudades en tránsito el tiempo de entrega depende de la distancia del destino en condiciones regulares, no considerando domingos y feriados."
+                            1: "Las entregas promedio en Lima Metropolitana se realizan de 5 a 24 horas.",
+                            2: "A nivel nacional en la capital de departamento es de 24 a 48 horas.",
+                            3: "Para ciudades en tránsito el tiempo de entrega depende de la distancia del destino en condiciones regulares, no considerando domingos ni feriados."
                         },
                         carousel: {
                             1: {
@@ -1714,7 +1730,7 @@ export default {
                             2: {
                                 icon: phone,
                                 title: "TELÉFONO",
-                                description: ["988890407"]
+                                description: ["988890407","# x colocar"]
                             },
                             3: {
                                 icon: facebook,
