@@ -601,7 +601,7 @@ body.page-wrapper {
             margin-top: 5%;
             color: #ffffff;
             font-size: 32px;
-            text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.5), 1px 1px 8px rgba(0, 0, 0, 1),  1px 1px 8px rgba(0, 0, 0, 1);   
         }
     }
 
@@ -667,6 +667,7 @@ body.page-wrapper {
                                         line-height: 30px;
                                     }
                                     .carousel-description {
+                                        text-shadow: 1px 1px 8px rgba(0, 0, 0, 1), 1px 1px 8px rgba(0, 0, 0, 1);
                                         width: 360px;
                                         font-size: 20px;
                                         color: #ffffff;
@@ -728,12 +729,14 @@ body.page-wrapper {
                         background-color: #006737;
                     }
                     .VueCarousel {
+                        pointer-events: none;
                         height: 100%;
                         max-width: 665px;
                         display: flex;
                         align-items: flex-end;
 
                         &.TextCarousel {
+                            pointer-events: none;
                             position: absolute;
                             top: 0;
                             left: -43px;
@@ -765,6 +768,7 @@ body.page-wrapper {
                                     line-height: 30px;
                                 }
                                 .carousel-description {
+                                    text-shadow: 1px 1px 8px rgba(0, 0, 0, 1), 1px 1px 8px rgba(0, 0, 0, 1);
                                     width: 400px;
                                     font-size: 20px;
                                     color: #ffffff;
@@ -931,7 +935,13 @@ body.page-wrapper {
     100%  {transform: rotate(50deg) translateY(400px);}
 }
 
-
+@media screen and (min-width: 1226px) {
+    .chasqui-parallax {
+        .v-parallax__image {
+            bottom: 40px;
+        }
+    }
+}
 
 @media screen and (max-width: 1225px) {
     #home {
@@ -1730,7 +1740,7 @@ export default {
                             2: {
                                 icon: phone,
                                 title: "TELÉFONO",
-                                description: ["988890407","# x colocar"]
+                                description: ["988890407","960511309"]
                             },
                             3: {
                                 icon: facebook,
