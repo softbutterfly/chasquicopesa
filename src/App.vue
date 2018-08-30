@@ -279,46 +279,52 @@
             </div>
             <div class="columns">
                 <div id="form" class="column is-half">
-                    <v-form>
+                    <v-form action="https://formspree.io/contacto@chasquicopesa.com.pe" method="POST">
                         <div class="display-flex">
                             <div class="field-label is-normal">
                                 <label class="label">NOMBRE</label>
                             </div>
-                            <input class="input" type="text">
+                            <input name="Nombre" class="input" type="text">
                         </div>
                         <hr class="hr">
                         <div class="display-flex">
                             <div class="field-label is-normal">
                                 <label class="label">COMPAÑIA</label>
                             </div>
-                            <input class="input" type="text">
+                            <input name="Empresa" class="input" type="text">
                         </div>
                         <hr class="hr">
                         <div class="display-flex">
                             <div class="field-label is-normal">
                                 <label class="label">CELULAR</label>
                             </div>
-                            <input class="input" type="tel">
+                            <input name="Celular" class="input" type="tel">
                         </div>
                         <hr class="hr">
                         <div class="display-flex">
                             <div class="field-label is-normal vertical-centering">
                                 <label class="label">CORREO ELECTRÓNICO</label>
                             </div>
-                            <input class="input" type="email">
+                            <input name="Correo electrónico" class="input" type="email" v-model="email">
                         </div>
                         <hr class="hr">
                         <div class="display-flex">
                             <div class="field-label is-normal  vertical-centering">
                                 <label class="label">DESCRIBA SUS NECESIDADES. MIENTRAS MÁS LO CONOCEMOS, MEJOR</label>
                             </div>
-                            <textarea class="textarea" type="text"></textarea>
+                            <textarea name="Mensaje" class="textarea" type="text"></textarea>
                         </div>
                         <div class="field is-horizontal">
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <button class="button is-primary">
+                                        <input style="display:none;" type="hidden" name="_subject"  value="Solicitud de servicio" />
+                                        <input style="display:none;" type="text"   name="_replyto"  v-model="email"/>
+                                        <input style="display:none;" type="hidden" name="_language" value="es" />
+                                        <input style="display:none;" type="hidden" name="_next"     :value="origin" />
+                                        <input style="display:none;" type="hidden" name="_cc"       value="chasquicopesa@outlook.com,chasquicopesa@yahoo.com" />
+                                        <input style="display:none;" type="text"   name="_gotcha" />
+                                        <button class="button is-primary" type="submit">
                                             ENVIAR
                                         </button>
                                     </div>
@@ -601,7 +607,8 @@ body.page-wrapper {
             margin-top: 5%;
             color: #ffffff;
             font-size: 32px;
-            text-shadow: 2px 2px rgba(0, 0, 0, 0.5), 1px 1px 8px rgba(0, 0, 0, 1),  1px 1px 8px rgba(0, 0, 0, 1);   
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.5),
+                1px 1px 8px rgba(0, 0, 0, 1), 1px 1px 8px rgba(0, 0, 0, 1);
         }
     }
 
@@ -667,7 +674,9 @@ body.page-wrapper {
                                         line-height: 30px;
                                     }
                                     .carousel-description {
-                                        text-shadow: 1px 1px 8px rgba(0, 0, 0, 1), 1px 1px 8px rgba(0, 0, 0, 1);
+                                        text-shadow: 1px 1px 8px
+                                                rgba(0, 0, 0, 1),
+                                            1px 1px 8px rgba(0, 0, 0, 1);
                                         width: 360px;
                                         font-size: 20px;
                                         color: #ffffff;
@@ -768,7 +777,8 @@ body.page-wrapper {
                                     line-height: 30px;
                                 }
                                 .carousel-description {
-                                    text-shadow: 1px 1px 8px rgba(0, 0, 0, 1), 1px 1px 8px rgba(0, 0, 0, 1);
+                                    text-shadow: 1px 1px 8px rgba(0, 0, 0, 1),
+                                        1px 1px 8px rgba(0, 0, 0, 1);
                                     width: 400px;
                                     font-size: 20px;
                                     color: #ffffff;
@@ -925,14 +935,22 @@ body.page-wrapper {
     }
 }
 
-
-
 @keyframes rotating {
-    0%   {transform: rotate(50deg) translateY(0px)}
-    25%  {transform: rotate(-50deg) translateY(100px);}
-    50%  {transform: rotate(50deg) translateY(200px);}
-    75%  {transform: rotate(-50deg) translateY(300px);}
-    100%  {transform: rotate(50deg) translateY(400px);}
+    0% {
+        transform: rotate(50deg) translateY(0px);
+    }
+    25% {
+        transform: rotate(-50deg) translateY(100px);
+    }
+    50% {
+        transform: rotate(50deg) translateY(200px);
+    }
+    75% {
+        transform: rotate(-50deg) translateY(300px);
+    }
+    100% {
+        transform: rotate(50deg) translateY(400px);
+    }
 }
 
 @media screen and (min-width: 1226px) {
@@ -1522,6 +1540,8 @@ export default {
     name: "App",
     data() {
         return {
+            email: "",
+            origin: window.location.origin,
             assets: {
                 ChasquiLimaCentro: ChasquiLimaCentro,
                 ChasquiArequipa: ChasquiArequipa,
@@ -1740,7 +1760,7 @@ export default {
                             2: {
                                 icon: phone,
                                 title: "TELÉFONO",
-                                description: ["988890407","960511309"]
+                                description: ["988890407", "960511309"]
                             },
                             3: {
                                 icon: facebook,
